@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>líder de ginásio</title>
+</head>
+<body>
+    <div class="containerInteiro">
+        <div class="container1">
+            <video autoplay loop muted src="../public/assets/vgod_banner.mp4" style="width: 100%; height: fit-content;"></video>
+        </div>
+    
+        <div class="container2">
+            <div class="navbar" id="nav">
+                <h1 class="titulo">virgingod*</h1>
+                <ul>
+                    <li>início</li>
+                    <li>sobre</li>
+                    <li>discografia</li>
+                    <li>login</li>
+                </ul>
+            </div>
+            <div class="akavirgingod">
+                <div class="textoImagem">
+                    <div class="texto">
+                        <p class="titulovgod">@virgingod*</p>
+                        <i>AKA: vgod*</i>
+                        <br>
+                        <br>
+                        <p class="textovgod">Mateus, mais conhecido como virgingod*, é um dos pioneiros do pluggn'b brasileiro, gênero musical derivado do <i>trap</i>, popularizado por meio da plataforma de streaming "SoundCloud" por artistas como "Autumn!" e "Summrs".</p>
+                    </div>
+                    <div class="imagemvgod">
+                        <img src="assets/vgod1.png" width="602" height="602">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container3">
+            <div class="imgwifi">
+                <img src="assets/wifi.png" width="100%">
+            </div>
+            <div class="textos">
+                <div class="texto1">
+                    <p>Inspirado por artistas como Kanye West e Tyler, The Creator, Mateus sempre foi muito ligado à música</p>
+                </div>
+                <div class="texto2">
+                    <p>Em 6 de Junho de 2018, aos 16 anos, ele lançava seu primeiro single, "Wifi", no SoundCloud.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container4">
+            <div class="imgsupernova">
+                <img src="assets/supernovalogo.png" width="675.5px" height="fit-content" style="height: 100%; width: 100%;">
+            </div>
+            <div class="textosupernova">
+                <p class="titulosupernova">@supernovasociety</p>
+                        <i>AKA: SUPERNOVA</i>
+                        <br>
+                        <br>
+                        <p class="textosupernova">SUPERNOVA SOCIETY ou SUPERNOVA, é um coletivo criado durante a pandemia para unir artistas portugueses e brasileiros de diversos aspectos da arte.
+                        <br>
+                        <br>
+                        Criado por Flameboi Matt, em 2020, o coletivo conta com artistas como: Roddie, Lippi, Twikipedia, além do próprio Virgingod.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+   window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('nav');
+    var container2 = document.querySelector('.container2');
+    var navbarHeight = navbar.offsetHeight;
+    var container2Top = container2.offsetTop;
+
+    if (window.pageYOffset > container2Top) {
+        navbar.classList.add('fixed-top');
+        container2.style.paddingTop = navbarHeight + 'px';
+    } else {
+        navbar.classList.remove('fixed-top');
+        container2.style.paddingTop = '0';
+    }
+});
+</script>
+
