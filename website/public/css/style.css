@@ -131,3 +131,64 @@ body{
 .container4 .textosupernova p{
     margin: 0;
 }
+
+.container5{
+    display: flex;
+    background-image: url(../assets/bgdiscografia.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+}
+
+.container5 .titulodiscografia{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.container5 .elementos{
+    display: flex;
+    justify-content: center;
+    margin-top: 9px; 
+    font-size: 20px;
+}
+
+.container5 .elementos .albums{
+    margin-top: 118px;
+    margin-right: 50px 
+}
+
+.container5 .elementos .albums h3{
+    transition: 250ms;
+}
+
+.container5 .elementos .albums h3:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+}
+
+.container5 .elementos .eps h3{
+    transition: 250ms;
+}
+
+.container5 .elementos .eps h3:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+}
+
+.container5 .elementos .eps{
+    margin-top: 118px;
+    margin-left: 50px
+}
+
+.container5 .clique {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 67px;
+    margin-left: 52px;
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+
