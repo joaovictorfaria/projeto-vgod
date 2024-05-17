@@ -166,6 +166,7 @@ body{
 .container5 .elementos .albums h3:hover{
     transform: scale(1.1);
     transition: 250ms;
+    cursor: pointer;
 }
 
 .container5 .elementos .eps h3{
@@ -175,6 +176,7 @@ body{
 .container5 .elementos .eps h3:hover{
     transform: scale(1.1);
     transition: 250ms;
+    cursor: pointer;
 }
 
 .container5 .elementos .eps{
@@ -189,6 +191,115 @@ body{
     height: 67px;
     margin-left: 52px;
     font-size: 20px;
-    margin-bottom: 13px;
 }
 
+.container5 .discografiaalbuns{
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    height: 373px;
+}
+
+.container5 .discografiaalbuns img{
+    transition: 250ms;
+}
+
+.container5 .discografiaalbuns img:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+
+}
+
+.container5 .discografiaeps{
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    height: 373px;
+}
+
+.container5 .discografiaeps img{
+    transition: 250ms;
+}
+
+.container5 .discografiaeps img:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+}
+
+.container5 .voltar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 33px;
+    font-size: 20px;
+}
+
+.container5 .voltar span{
+    transition: 250ms;
+}
+
+.container5 .voltar span:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container5 .discografiaeps .mtamor{
+    display: flex;
+    flex-direction: column;
+}
+
+.container5 .discografiaeps .mtamor .textomtamor{
+    display: flex;
+    justify-content: center;
+}
+
+.container5 .discografiaeps .duplapersona{
+    display: flex;
+    flex-direction: column;
+}
+
+.container5 .discografiaeps .duplapersona .textoduplapersona{
+    display: flex;
+    justify-content: center;
+}
+
+.container5 .discografiaeps .ldg{
+    display: flex;
+    flex-direction: column;
+}
+
+.container5 .discografiaeps .ldg .textoldg{
+    display: flex;
+    justify-content: center;
+}
+
+.container5 .discografiaalbuns .vgodcollection{
+    display: flex;
+    flex-direction: column;
+}
+
+.container5 .discografiaalbuns .vgodcollection .textovgodcollection{
+    display: flex;
+    justify-content: center;
+}
+
+.container5 .discografiaalbuns .neongenesisvgod{
+    display: flex;
+    flex-direction: column;
+}
+
+.container5 .discografiaalbuns .neongenesisvgod .textoneongenesisvgod{
+    display: flex;
+    justify-content: center;
+}
+
+.container5 .discografiaalbuns .liderdeginasio{
+    display: flex;
+    flex-direction: column;
+}
+
+.container5 .discografiaalbuns .liderdeginasio .textoliderdeginasio{
+    display: flex;
+    justify-content: center;
+}
