@@ -31,17 +31,33 @@ body{
     height: 659px;
     width: 100%;
     background-color: white;
+    position: relative;
+    z-index: 1;
 }
 
 .container2 .navbar{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .container2 .navbar li{
     display: inline-block;
     font-size: 20px;
-    padding: 0px 20px
+    padding: 0px 15px;
+    list-style: none;
+    transition: 250ms;
+}
+
+.container2 .navbar li a{
+    text-decoration: none;
+    color: black;
+}
+
+.container2 .navbar li:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+    cursor: pointer;
 }
 
 .container2 .navbar h1{
