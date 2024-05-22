@@ -34,7 +34,7 @@ body{
     padding-left: 10px;
 }
 
-.container1 .formcadastro #email{
+.container1 .formcadastro #ipt_email{
     width: 420px;
     height: 35px;
     padding-left: 10px;

@@ -3,20 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/login.css">
+    <link rel="stylesheet" href="./css/login.css">
     <title>login*</title>
 </head>
 <body>
     <div class="container1">
         <div class="formlogin">
             <h3>login</h3>
-            <input type="text" placeholder="e-mail">
-            <input type="text" placeholder="senha">
+            <input type="text" placeholder="e-mail" id="ipt_email">
+            <input type="password" placeholder="senha" id="ipt_senha">
             <div class="cadastre">
                 <span>ainda não possui uma conta? <a href="cadastro.html">cadastre-se!*</a></span>
             </div>
-            <button>entrar*</button>
+            <button onclick="entrar()">entrar*</button>
         </div>
     </div>
 </body>
 </html>
+
+<script>
+    function entrar() {
+
+var emailVar = ipt_email.value;
+var senhaVar = ipt_senha.value;
+
+if (emailVar == "" || senhaVar == "") {
+    // cardErro.style.display = "block"
+    // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+    // finalizarAguardar();
+    return false;
+}
+else {
+    setInterval(5000)
+}
+
+console.log("FORM LOGIN: ", emailVar);
+console.log("FORM SENHA: ", senhaVar);
+
+fetch("/usuarios/autenticar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    })
+}).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.id;
+
+            setTimeout(function () {
+                window.location = "/dashboard.html";
+            }, 1000); // apenas para exibir o loading
+
+        });
+
+    } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+            console.error(texto);;
+        });
+    }
+
+}).catch(function (erro) {
+    console.log(erro);
+})
+
+return false;
+}
+
+function sumirMensagem() {
+cardErro.style.display = "none"
+}
+
+</script>
