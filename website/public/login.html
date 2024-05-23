@@ -42,7 +42,7 @@ console.log("FORM SENHA: ", senhaVar);
 
 fetch("/usuarios/autenticar", {
     method: "POST",
-    headers: {
+    headers: {  
         "Content-Type": "application/json"
     },
     body: JSON.stringify({
@@ -63,7 +63,7 @@ fetch("/usuarios/autenticar", {
             sessionStorage.ID_USUARIO = json.id;
 
             setTimeout(function () {
-                window.location = "/dashboard.html";
+                window.location.href = "/dashboard.html";
             }, 1000); // apenas para exibir o loading
 
         });
@@ -84,8 +84,5 @@ fetch("/usuarios/autenticar", {
 return false;
 }
 
-function sumirMensagem() {
-cardErro.style.display = "none"
-}
 
 </script>
