@@ -143,6 +143,26 @@ nav{
     border: 3px solid #F5DAD2;
 }
 
+#musica2.containerescute {
+    display: none;
+}
+
+#musica3.containerescute {
+    display: none;
+}
+
+#musica4.containerescute {
+    display: none;
+}
+
+#musica5.containerescute {
+    display: none;
+}
+
+#musica6.containerescute {
+    display: none;
+}
+
 .container1 .containerescute .conteudo{
     display: flex;
     justify-content: center;
@@ -176,5 +196,29 @@ nav{
 
 .container1 .containerescute .playfav audio{
     width: 438px;    
+}
+
+.container1 .back{
+    position: absolute;
+    left: 8rem;
+    transition: 250ms;
+}
+
+.container1 .back:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.container1 .foward{
+    position: absolute;
+    right: 8rem;
+    transition: 250ms;
+}
+
+.container1 .foward:hover{
+    transform: scale(1.1);
+    transition: 250ms;
+    cursor: pointer;
 }
 
