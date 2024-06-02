@@ -9,7 +9,7 @@
     <title>dashboard*</title>
 </head>
 
-<body onload="exibirGrafico()">
+<body onload="exibirGrafico()" onload="ver_usuario()">
     <div class="nav">
         <button class="burger" onclick="mostrar()">
             <div class="bar" id="bar1"></div>
@@ -36,15 +36,11 @@
         </div>
         <div class="infos">
             <div class="box1">
-                <h3>200+</h3>
+                <h3><span id="qtdUsuarios"></span></h3>
                 <p>pessoas participaram da votação</p>
             </div>
-            <div class="box2">
-                <h3>100+</h3>
-                <p>músicas favoritadas pelos usuários</p>
-            </div>
             <div class="box3">
-                <h3>20+</h3>
+                <h3>5+</h3>
                 <p>músicas selecionadas para escutar na plataforma</p>
             </div>
         </div>
@@ -131,6 +127,26 @@
 
         let ctx = document.getElementById('myChartCanvas').getContext('2d');
         let myChart = new Chart(ctx, config);
+    }
+
+    function ver_usuario() {
+        fetch(`/usuarios/verUsuarios`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (respostaUsuario) {
+                        console.log(`Dados recebidos: ${JSON.stringify(respostaUsuario)}`);
+                        respostaUsuario.reverse();
+                        
+                        qtdUsuarios.innerHTML = `${respostaUsuario[0].qtd_usuario}`;
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
 
     function limparSessao() {
