@@ -1,24 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-body{
+html, body{
+    height: 100%;
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
+    font-size: 20px;
 }
 
 .container1{
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     height: 100%;
-    background: url(../assets/bgdash.png);
-    background-position: center;
-    background-repeat: no-repeat;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1 #asterisco{
     position: absolute;
+    right: 23rem;
+    top: 9rem;
+}
+
+.container1 #estrela{
+    position: absolute;
+    right: 41rem;
+    top: 13rem;
+}
+
+.container1 .foto img{
+    border-radius: 100px;
+    border: 3px solid black;
+}
+
+.container1 .texto{
+    text-align: center;
+}
+
+.container1 .texto p{
+    width: 350px;
+    margin-top: 37px;
+}
+
+.container2{
+    width: 100%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
 }
 
+.container2 .texto1{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;  
+}
+
+.container2 .texto1 p{
+    width: 700px;
+}
+
+.container2 .texto2{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container2 .texto2 .texto2texto1{
+    width: 289px;
+    text-align: center;
+}
+
+.container2 .texto2 .texto2texto2{
+    width: 289px;
+    text-align: center;
+}
+
+.container3{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container3 .texto3 p{
+    width: 550px;
+}
 
 a, button {
     cursor: pointer;

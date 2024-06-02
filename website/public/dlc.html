@@ -21,7 +21,7 @@
                     <li><a href="./dashboard.html">home</a></li>
                     <li><a href="./escute.html">escute*</a></li>
                     <li><a href="./votacao.html">votação</a></li>
-                    <li><a href="">dlc+*</a></li>
+                    <li><a href="./dlc.html">dlc+*</a></li>
                     <li><a onclick="limparSessao()" href="">sair</a></li>
                 </ul>
             </nav>
@@ -29,7 +29,45 @@
     </div>
 
     <div class="container1">
-          
+        <img id="asterisco" src="./assets/asterisco.png">
+        <img  id="estrela" src="./assets/estrela.png">
+          <div class="foto">
+            <img src="./assets/profile.png" height="200px" width="200px">
+          </div>
+          <div class="texto">
+            <p>oi! meu nome é joão victor e eu sou o responsável pela idealização, design e construção desse projeto.</p>
+          </div>
+          <div class="urls">
+            <img src="./assets/LinkedIn.png" width="50px" height="50px">
+            <img src="./assets/Instagram.png" width="50px" height="50px">
+            <img src="./assets/LastFM.png" width="50px" height="50px">
+          </div>
+    </div>
+    <div class="container2">
+        <div class="texto1">
+            <p>esse projeto foi a minha forma de expressar quem eu sou e o que eu gosto, através da arte.
+                eu conheci a arte do virgingod* no começo de 2022, através de um streamer, que hoje em dia é meu amigo.
+                desde então, sua música tem me acompanhado em todos os momentos que eu passo.
+                eu não hesito em dizer que sua poesia foi um dos grandes fatores para que eu me tornasse quem sou hoje em dia.
+            </p>
+        </div>
+        <div class="texto2">
+            <div class="texto2texto1">
+                <p>eu queria agradecer à minha família, que é o motivo de eu estar vivo, o motivo de eu, todos os dias, escolher viver o próximo. minha mãe, Andrea, minha irmã, Amanda, minha sobrinha, Aimée e minha falecida vó, Ivany.</p>
+            </div>
+            <div class="texto2texto2">
+                <p>além disso, queria agradecer, também, aos meus amigos, que me ajudaram a continuar, mesmo quando eu duvidei da minha capacidade. e à minha namorada, Clara, que todos os dias me coloca pra pra cima, e por isso eu consigo entregar tudo de mim.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container3">
+        <div class="texto3">
+            <p>agradeço, também, ao próprio virgingod*, que não só tirou um tempo pra esclarescer minhas dúvidas e me ajudar na realização desse projeto, mas também é a minha maior inspiração, em todos os aspectos possíveis.</p>
+        </div>
+        <div class="agradeco">
+            <p>todo o conteúdo deste site foi feito com muito amor*</p>
+            <span>obrigado. ♡*</span>
+        </div>
     </div>
     
 </body>
@@ -37,66 +75,11 @@
 </html>
 
 <script>
-    var selectMusica = 0;
     function mostrar() {
         document.querySelector('.burger').classList.toggle('open')
         document.querySelector('.nav').classList.toggle('active')
     }
 
-    function select_musica1(){
-        document.querySelector('.m1').classList.toggle('selected')
-        selectMusica = 1;
-    }
-
-    function select_musica2(){
-        document.querySelector('.m2').classList.toggle('selected')
-        selectMusica = 2;
-    }
-
-    function select_musica3(){
-        document.querySelector('.m3').classList.toggle('selected')
-        selectMusica = 3;
-    }
-
-    function select_musica4(){
-        document.querySelector('.m4').classList.toggle('selected')
-        selectMusica = 4;
-    }
-
-    function select_musica5(){
-        document.querySelector('.m5').classList.toggle('selected')
-        selectMusica = 5;
-    }
-
-    function select_musica6(){
-        document.querySelector('.m6').classList.toggle('selected')
-        selectMusica = 6;
-    }
-
-    function votar() { 
-        var fkUsuarioServer = sessionStorage.ID_USUARIO;
-
-        alert("votação feita com sucesso!*")
-
-fetch(`/usuarios/votar?fkUsuarioServer=${fkUsuarioServer}`, {
-    method: "POST",
-    headers: {  
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        votoServer: selectMusica
-    })
-}).then(function (resposta) {
-    console.log("ESTOU NO THEN DO entrar()!")
-
-    
-
-}).catch(function (erro) {
-    console.log(erro);
-})
-
-return false;
-}
 
 function limparSessao() {
     sessionStorage.clear();
