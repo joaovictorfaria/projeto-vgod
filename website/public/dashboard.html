@@ -9,7 +9,7 @@
     <title>dashboard*</title>
 </head>
 
-<body>
+<body onload="exibirGrafico()">
     <div class="nav">
         <button class="burger" onclick="mostrar()">
             <div class="bar" id="bar1"></div>
@@ -19,11 +19,11 @@
         <div class="navside">
             <nav>
                 <ul>
-                    <li><a href="">home</a></li>
-                    <li><a href="">escute*</a></li>
-                    <li><a href="">votação</a></li>
-                    <li><a href="">curiosidades</a></li>
+                    <li><a href="./dashboard.html">home</a></li>
+                    <li><a href="./escute.html">escute*</a></li>
+                    <li><a href="./votacao.html">votação</a></li>
                     <li><a href="">dlc+*</a></li>
+                    <li><a onclick="limparSessao()" href="./index.html">sair</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,7 +31,7 @@
 
     <div class="container1">
         <div class="hello">
-            <h3 id="hello1">olá, joão.</h3>
+            <h3 id="hello1">olá, <span id="b_usuario">joão</span>.</h3>
             <h3 id="hello2">este é seu espaço de análise!</h3>
         </div>
         <div class="infos">
@@ -48,10 +48,8 @@
                 <p>músicas selecionadas para escutar na plataforma</p>
             </div>
         </div>
-        <div class="chart">
-            <div>
-                <canvas id="myChart" width="830px" height="250px"></canvas>
-              </div>
+        <div id="grafico">
+            
         </div>
         <div class="image">
             <img src="./assets/badtzmaru.png" width="130px" height="120px">
@@ -62,31 +60,81 @@
 </html>
 
 <script>
-    const ctx = document.getElementById('myChart');
-
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 3,
-      backgroundColor: '#FFDEDE',
-      borderColor: '#FFABAB'
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function mostrar() {
         document.querySelector('.burger').classList.toggle('open')
         document.querySelector('.nav').classList.toggle('active')
     }
+
+    function exibirGrafico() {
+        document.getElementById("grafico").innerHTML += `
+            <div id="graficoQuiz">
+                <div class="graph">
+                    <canvas id="myChartCanvas" width="800px" height="240px"></canvas>
+                </div>
+            </div>
+        `;
+        obterDadosGrafico();
+    }
+
+    function obterDadosGrafico() {
+        fetch(`/medidas/ultimas/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGrafico(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Votos',
+                data: [],
+                fill: false,
+                borderColor: '#FF9EAA',
+                borderWidth: 3,
+                backgroundColor: '#FFD0D0',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar o gráfico:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.numero_voto);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let ctx = document.getElementById('myChartCanvas').getContext('2d');
+        let myChart = new Chart(ctx, config);
+    }
+
+    function limparSessao() {
+    sessionStorage.clear();
+    window.location.href = "/index.html";
+}
 </script>

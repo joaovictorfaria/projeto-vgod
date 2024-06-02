@@ -37,8 +37,13 @@ body{
     width: 100px;
     height: 30px;
     color: white;
-    background-color: #AD88C6;
+    background-color: #BC7FCD;
     border-style: none;
+}
+
+.container1 .formlogin button:hover{
+    background-color: #86469C;
+    transition: 250ms;
 }
 
 .container1 .formlogin h3{
@@ -49,4 +54,14 @@ body{
     width: 215px;
     font-size: 13px;
     margin-top: -20px;
+}
+
+.container1 .formlogin .cadastre span a{
+    text-decoration: none;
+    color: #BC7FCD;
+}
+
+.container1 .formlogin .cadastre span a:hover{
+    transition: 250ms;
+    color: #86469C;
 }

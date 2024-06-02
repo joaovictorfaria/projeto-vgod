@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dlc.css">
+    <title>participe da votação!</title>
+</head>
+
+<body>
+    <div class="nav">
+        <button class="burger" onclick="mostrar()">
+            <div class="bar" id="bar1"></div>
+            <div class="bar" id="bar2"></div>
+            <div class="bar" id="bar3"></div>
+        </button>
+        <div class="navside">
+            <nav>
+                <ul>
+                    <li><a href="./dashboard.html">home</a></li>
+                    <li><a href="./escute.html">escute*</a></li>
+                    <li><a href="./votacao.html">votação</a></li>
+                    <li><a href="">dlc+*</a></li>
+                    <li><a onclick="limparSessao()" href="">sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container1">
+          
+    </div>
+    
+</body>
+
+</html>
+
+<script>
+    var selectMusica = 0;
+    function mostrar() {
+        document.querySelector('.burger').classList.toggle('open')
+        document.querySelector('.nav').classList.toggle('active')
+    }
+
+    function select_musica1(){
+        document.querySelector('.m1').classList.toggle('selected')
+        selectMusica = 1;
+    }
+
+    function select_musica2(){
+        document.querySelector('.m2').classList.toggle('selected')
+        selectMusica = 2;
+    }
+
+    function select_musica3(){
+        document.querySelector('.m3').classList.toggle('selected')
+        selectMusica = 3;
+    }
+
+    function select_musica4(){
+        document.querySelector('.m4').classList.toggle('selected')
+        selectMusica = 4;
+    }
+
+    function select_musica5(){
+        document.querySelector('.m5').classList.toggle('selected')
+        selectMusica = 5;
+    }
+
+    function select_musica6(){
+        document.querySelector('.m6').classList.toggle('selected')
+        selectMusica = 6;
+    }
+
+    function votar() { 
+        var fkUsuarioServer = sessionStorage.ID_USUARIO;
+
+        alert("votação feita com sucesso!*")
+
+fetch(`/usuarios/votar?fkUsuarioServer=${fkUsuarioServer}`, {
+    method: "POST",
+    headers: {  
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        votoServer: selectMusica
+    })
+}).then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    
+
+}).catch(function (erro) {
+    console.log(erro);
+})
+
+return false;
+}
+
+function limparSessao() {
+    sessionStorage.clear();
+    window.location.href = "/index.html";
+}
+</script>

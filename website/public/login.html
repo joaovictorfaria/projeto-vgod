@@ -10,11 +10,12 @@
     <div class="container1">
         <div class="formlogin">
             <h3>login</h3>
-            <input type="text" placeholder="e-mail" id="ipt_email">
-            <input type="password" placeholder="senha" id="ipt_senha">
+            <input type="text" placeholder="e-mail" id="ipt_email" autocomplete="off">
+            <input type="password" placeholder="senha" id="ipt_senha" autocomplete="off">
             <div class="cadastre">
                 <span>ainda não possui uma conta? <a href="cadastro.html">cadastre-se!*</a></span>
             </div>
+            <div id="mensagem"></div>
             <button onclick="entrar()">entrar*</button>
         </div>
     </div>
@@ -40,6 +41,12 @@ else {
 console.log("FORM LOGIN: ", emailVar);
 console.log("FORM SENHA: ", senhaVar);
 
+if (emailVar == undefined) {
+        alert("e-mail inválido!");
+    } else if (senhaVar == undefined) {
+        alert("senha inválida!");
+    }
+
 fetch("/usuarios/autenticar", {
     method: "POST",
     headers: {  
@@ -54,6 +61,7 @@ fetch("/usuarios/autenticar", {
 
     if (resposta.ok) {
         console.log(resposta);
+        mensagem.innerHTML = ` <span style="font-size: 15px;">login feito com sucesso! ♡ </span>`;
 
         resposta.json().then(json => {
             console.log(json);
@@ -70,6 +78,7 @@ fetch("/usuarios/autenticar", {
 
     } else {
 
+        alert("houve um erro ao tentar realizar o login! verifique se seu e-mail ou senha estão corretos.")
         console.log("Houve um erro ao tentar realizar o login!");
 
         resposta.text().then(texto => {

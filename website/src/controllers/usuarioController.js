@@ -20,6 +20,8 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
                         res.json({
+                            id: resultadoAutenticar[0].idUsuario,
+                            nome: resultadoAutenticar[0].nome,
                             email: resultadoAutenticar[0].email,
                             senha: resultadoAutenticar[0].senha,
                         });
@@ -77,7 +79,31 @@ function cadastrar(req, res) {
     }
 }
 
+function votar(req, res) {
+    var fkUsuario = req.query.fkUsuarioServer;
+    var voto = req.body.votoServer;
+
+        usuarioModel.votar(fkUsuario, voto)
+            .then(
+                function (resultadoVotar) {
+                    console.log(`\nResultados encontrados: ${resultadoVotar.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultadoVotar)}`); // transforma JSON em String
+
+                    
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    votar
 }

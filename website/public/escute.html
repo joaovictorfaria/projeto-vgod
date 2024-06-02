@@ -19,11 +19,11 @@
         <div class="navside">
             <nav>
                 <ul>
-                    <li><a href="">home</a></li>
-                    <li><a href="">escute*</a></li>
-                    <li><a href="">votação</a></li>
-                    <li><a href="">curiosidades</a></li>
+                    <li><a href="./dashboard.html">home</a></li>
+                    <li><a href="./escute.html">escute*</a></li>
+                    <li><a href="./votacao.html">votação</a></li>
                     <li><a href="">dlc+*</a></li>
+                    <li><a onclick="limparSessao()" href="">sair</a></li>
                 </ul>
             </nav>
         </div>
@@ -231,4 +231,9 @@
             musica5.style.display = "flex";
         }
     }
+
+    function limparSessao() {
+    sessionStorage.clear();
+    window.location = "./index.html";
+}
 </script>

@@ -44,8 +44,13 @@ body{
     width: 100px;
     height: 30px;
     color: white;
-    background-color: #FF9F66;
+    background-color: #FFBF78;
     border-style: none;
+}
+
+.container1 .formcadastro button:hover{
+    background-color: #FF7D29;
+    transition: 250ms;
 }
 
 .container1 .formcadastro h3{
