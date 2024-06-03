@@ -16,8 +16,12 @@ router.post("/votar", function (req, res) {
     usuarioController.votar(req, res);
 });
 
-router.get("/verUsuarios", function (req, res) {
-    usuarioController.ver_usuarios(req, res);
+router.get("/listarUsuarios", function (req, res) {
+    usuarioController.listarUsuarios(req, res);
+});
+
+router.get("/listarVotos", function (req, res) {
+    usuarioController.listarVotos(req, res);
 });
 
 module.exports = router;

@@ -100,30 +100,23 @@ function votar(req, res) {
             );
     }
 
-    function ver_usuarios(req, res) {
-        
-            usuarioModel.ver_usuarios()
-                .then(
-                    function (resultado) {
-                        console.log(`\nResultados encontrados: ${resultado.length}`);
-                        console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-    
-                        
-                    }
-                ).catch(
-                    function (erro) {
-                        console.log(erro);
-                        console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
-                        res.status(500).json(erro.sqlMessage);
-                    }
-                );
-        }
 
+    function listarVotos(req, res) {
+        usuarioModel.listarVotos().then((resultado) => {
+          res.status(200).json(resultado);
+        });
+      }
 
+      function listarUsuarios(req, res) {
+        usuarioModel.listarUsuarios().then((resultado) => {
+          res.status(200).json(resultado);
+        });
+      }
 
 module.exports = {
+    listarUsuarios,
+    listarVotos,
     autenticar,
     cadastrar,
-    votar,
-    ver_usuarios
+    votar
 }
