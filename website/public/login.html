@@ -16,13 +16,15 @@
                 <span>ainda não possui uma conta? <a href="cadastro.html">cadastre-se!*</a></span>
             </div>
             <div id="mensagem"></div>
-            <button onclick="entrar()">entrar*</button>
+            <button id="botao" onclick="entrar()">entrar*</button>
         </div>
     </div>
 </body>
 </html>
 
 <script>
+var tentativas = 5;
+
     function entrar() {
 
 var emailVar = ipt_email.value;
@@ -61,7 +63,7 @@ fetch("/usuarios/autenticar", {
 
     if (resposta.ok) {
         console.log(resposta);
-        mensagem.innerHTML = ` <span style="font-size: 15px;">login feito com sucesso! ♡ </span>`;
+        
 
         resposta.json().then(json => {
             console.log(json);
@@ -74,11 +76,31 @@ fetch("/usuarios/autenticar", {
                 window.location.href = "/dashboard.html";
             }, 1000); // apenas para exibir o loading
 
-        });
+        }
+    );
 
     } else {
 
-        alert("houve um erro ao tentar realizar o login! verifique se seu e-mail ou senha estão corretos.")
+        for (var i = 0; i < tentativas; i++) {
+        if (resposta.ok) {
+            mensagem.innerHTML = ` <span style="font-size: 15px;">login feito com sucesso! ♡ </span>`;
+            tentativas = 5;
+            entrar()
+            return;
+        } else {
+            tentativas--;
+            if (tentativas === 0) {
+                mensagem.innerHTML = `usuário bloqueado!`; 
+                
+            } else {
+                mensagem.innerHTML = `tentativas restantes: ${tentativas}`;
+                alert("houve um erro ao tentar realizar o login! verifique se seu e-mail ou senha estão corretos.")
+            }
+            return;
+        }
+    }
+
+        
         console.log("Houve um erro ao tentar realizar o login!");
 
         resposta.text().then(texto => {

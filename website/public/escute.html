@@ -46,7 +46,27 @@
             <span>🎧⭐️</span>
         </div>        
         <div id="musica1" class="containerescute">
-            <div class="conteudo">
+            
+        </div>
+        <div id="musica2" class="containerescute">
+            
+        <div id="musica3" class="containerescute">
+            
+        <div id="musica4" class="containerescute">
+            
+        <div id="musica5" class="containerescute">
+            
+        <div id="musica6" class="containerescute">
+           
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var cont = 0;
+var listaMusicas = [`<div class="conteudo">
                 <div class="imgalbum1">
                     <img src="./assets/mtamor.jpeg" height="225px" width="225px">
                 </div>
@@ -65,10 +85,7 @@
             <div class="playfav">
                 <audio src="./assets/lefleur.mp3" controls=""></audio>
                 <img src="./assets/icon_fav.png" width="50px" height="40px">
-            </div>
-        </div>
-        <div id="musica2" class="containerescute">
-            <div class="conteudo">
+            </div>`, `<div class="conteudo">
                 <div class="imgalbum1">
                     <img src="./assets/duplapersona.jpg" height="225px" width="225px">
                 </div>
@@ -88,9 +105,7 @@
                 <audio src="./assets/solido.mp3" controls=""></audio>
                 <img src="./assets/icon_fav.png" width="50px" height="40px">
             </div>
-        </div>
-        <div id="musica3" class="containerescute">
-            <div class="conteudo">
+        </div>`, `<div class="conteudo">
                 <div class="imgalbum1">
                     <img src="./assets/ldg.jpg" height="225px" width="225px">
                 </div>
@@ -110,9 +125,7 @@
                 <audio src="./assets/cesvaover.mp3" controls=""></audio>
                 <img src="./assets/icon_fav.png" width="50px" height="40px">
             </div>
-        </div>
-        <div id="musica4" class="containerescute">
-            <div class="conteudo">
+        </div>`, `<div class="conteudo">
                 <div class="imgalbum1">
                     <img src="./assets/vgodcollection.jpg" height="225px" width="225px">
                 </div>
@@ -132,9 +145,7 @@
                 <audio src="./assets/chaogarden.mp3" controls=""></audio>
                 <img src="./assets/icon_fav.png" width="50px" height="40px">
             </div>
-        </div>
-        <div id="musica5" class="containerescute">
-            <div class="conteudo">
+        </div>`, `<div class="conteudo">
                 <div class="imgalbum1">
                     <img src="./assets/neongenesisvgod.png" height="225px" width="225px">
                 </div>
@@ -154,9 +165,7 @@
                 <audio src="./assets/tarde.mp3" controls=""></audio>
                 <img src="./assets/icon_fav.png" width="50px" height="40px">
             </div>
-        </div>
-        <div id="musica6" class="containerescute">
-            <div class="conteudo">
+        </div>`, ` <div class="conteudo">
                 <div class="imgalbum1">
                     <img src="./assets/liderdeginasio.jpg" height="225px" width="225px">
                 </div>
@@ -175,60 +184,37 @@
             <div class="playfav">
                 <audio src="./assets/detonado.mp3" controls=""></audio>
                 <img src="./assets/icon_fav.png" width="50px" height="40px">
-            </div>
-        </div>
-    </div>
-</body>
+            </div>`]
 
-</html>
-
-<script>
     function mostrar() {
         document.querySelector('.burger').classList.toggle('open')
         document.querySelector('.nav').classList.toggle('active')
     }
 
+    function first(){
+        musica1.innerHTML = `${listaMusicas[0]}`;
+    }
+    first()
+
     function foward(){
-        if (musica1.style.display == "flex"){
-            musica1.style.display = "none";
-            musica2.style.display ="flex";
-        } else if (musica2.style.display == "flex"){
-            musica2.style.display = "none";
-            musica3.style.display ="flex";
-        } else if (musica3.style.display == "flex"){
-            musica3.style.display = "none";
-            musica4.style.display ="flex";
-        } else if (musica4.style.display == "flex"){
-            musica4.style.display = "none";
-            musica5.style.display ="flex";
-        } else if (musica5.style.display == "flex"){
-            musica5.style.display = "none";
-            musica6.style.display = "flex";
-        } else {
-            musica6.style.display = "none";
-            musica1.style.display = "flex";
+        cont++;
+
+        if (cont > 5){
+            cont = 0;
+            musica1.innerHTML = `${listaMusicas[cont]}`;
+        }else{
+        musica1.innerHTML = `${listaMusicas[cont]}`;
         }
     }
 
     function back(){
-        if (musica1.style.display == "flex"){
-            musica1.style.display = "none";
-            musica6.style.display ="flex";
-        } else if (musica2.style.display == "flex"){
-            musica2.style.display = "none";
-            musica1.style.display ="flex";
-        } else if (musica3.style.display == "flex"){
-            musica3.style.display = "none";
-            musica2.style.display ="flex";
-        } else if (musica4.style.display == "flex"){
-            musica4.style.display = "none";
-            musica3.style.display = "flex";
-        } else if (musica5.style.display == "flex"){
-            musica5.style.display = "none";
-            musica4.style.display = "flex";
-        }  else {
-            musica6.style.display = "none";
-            musica5.style.display = "flex";
+        cont--;
+
+        if (cont < 0){
+            cont = 5;
+            musica1.innerHTML = `${listaMusicas[cont]}`;
+        }else{
+        musica1.innerHTML = `${listaMusicas[cont]}`;
         }
     }
 
