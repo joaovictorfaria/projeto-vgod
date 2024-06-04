@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cadastro.css">
-    <title>cadastro*</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/cadastro.css">
+  <title>cadastro*</title>
 </head>
+
 <body>
-    <div class="container1">
-        <div class="formcadastro">
-            <h3>cadastro</h3>
-            <span>
-                <input type="text" autocomplete="off" placeholder="nome" id="ipt_nome">
-                <input type="text" autocomplete="off" placeholder="sobrenome" id="ipt_sobrenome">
-            </span>
-            <input type="text"  placeholder="e-mail" id="ipt_email">
-            <span>
-                <input type="password" autocomplete="off"  placeholder="senha" id="ipt_senha">
-                <input type="password" autocomplete="off" placeholder="confirma senha" id="ipt_confirmaSenha">
-            </span>
-            <div id="mensagem"></div>
-            <button onclick="cadastrar()">cadastrar*</button>
-        </div>
+  <div class="container1">
+    <div class="formcadastro">
+      <h3>cadastro</h3>
+      <span>
+        <input type="text" autocomplete="off" placeholder="nome" id="ipt_nome">
+        <input type="text" autocomplete="off" placeholder="sobrenome" id="ipt_sobrenome">
+      </span>
+      <input type="text" placeholder="e-mail" id="ipt_email">
+      <span>
+        <input type="password" autocomplete="off" placeholder="senha" id="ipt_senha">
+        <input type="password" autocomplete="off" placeholder="confirma senha" id="ipt_confirmaSenha">
+      </span>
+      <div id="mensagem"></div>
+      <button onclick="cadastrar()">cadastrar*</button>
     </div>
+  </div>
 </body>
+
 </html>
 
 <script>
-    function cadastrar() {
+  function cadastrar() {
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -36,17 +39,27 @@
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
     var confirmacaoSenhaVar = ipt_confirmaSenha.value;
+    var indice_arroba = emailVar.indexOf('@');
+    var indice_ponto = emailVar.indexOf('.');
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      mensagem.innerHTML =
+        "preencha todos os campos! (╥﹏╥)";
       return false;
-    } else {
+    } else if (indice_arroba == -1 || indice_ponto == -1) {
+            alert('e-mail deve conter "@" e "."');
+            return false;
+          } else if (senhaVar.length < 6) {
+            alert('senha deve ter pelo menos 6 caracteres!');
+            return false;
+          } else if (senhaVar != confirmacaoSenhaVar) {
+            alert('as senhas devem ser iguais!');
+            return false;
+          } else {
       setInterval(5000);
     }
 
@@ -70,14 +83,15 @@
 
         if (resposta.ok) {
 
-           mensagem.innerHTML = ` <span style="font-size: 15px;">cadastro feito com sucesso! ♡ </span>`;
+          mensagem.innerHTML = ` <span style="font-size: 15px;">cadastro feito com sucesso! ♡ </span>`;
 
-        console.log("chegou aqiu")
+          console.log("chegou aqiu")
           setTimeout(() => {
             window.location = "/login.html";
           }, "2000");
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
+
         }
       })
       .catch(function (resposta) {
