@@ -86,11 +86,9 @@ Contribuições são bem-vindas! Siga os passos:
 - Push para a branch (git push origin feature/nova-funcionalidade).
 - Abra um Pull Request.
 
----
 
 **📄 Licença**
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
----
 
 Feito com muito amor❤* por João Victor de Faria
