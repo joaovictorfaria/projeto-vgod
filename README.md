@@ -91,4 +91,4 @@ Contribuições são bem-vindas! Siga os passos:
 **📄 Licença**
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-Feito com muito amor❤* por João Victor de Faria
+**Feito com muito amor❤* por João Victor de Faria**
