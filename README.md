@@ -1,4 +1,4 @@
-# 🌟 vgod - Fan Site Interativo  
+# 🌟 vgod* 
 
 **vgod** é um projeto educativo desenvolvido como um fan-site dedicado a um artista brasileiro, combinando design imersivo e funcionalidades interativas para criar uma experiência única para os fãs.  
 
@@ -58,15 +58,19 @@
 ---
 
 **🛠 Estrutura do Projeto**
-    vgod/
-    ├── public/          # Arquivos estáticos (HTML, CSS, JS)
-    ├── src/             # Lógica do back-end (Node.js)
-    │   ├── routes/      # Rotas da API
-    │   ├── models/      # Modelos do banco de dados
-    │   └── app.js       # Configuração do servidor
-    ├── .env.example     # Modelo de variáveis de ambiente
-    └── README.md        # Este arquivo
-
+vgod/
+├── public/          # Arquivos estáticos (HTML, CSS, JS)
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── src/             # Lógica do back-end (Node.js)
+│   ├── routes/      # Rotas da API
+│   ├── models/      # Modelos do banco de dados
+│   ├── controllers/ # Lógica das rotas
+│   └── app.js       # Configuração do servidor
+├── .env.example     # Modelo de variáveis de ambiente
+├── package.json
+└── README.md
 ---
 
 **🤝 Contribuição**
