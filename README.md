@@ -1,4 +1,4 @@
-# 🌟 vgod* 
+# 🌟vgod* 
 
 **vgod** é um projeto educativo desenvolvido como um fan-site dedicado a um artista brasileiro, combinando design imersivo e funcionalidades interativas para criar uma experiência única para os fãs.  
  
