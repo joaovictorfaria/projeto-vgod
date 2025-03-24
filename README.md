@@ -1,11 +1,8 @@
 # 🌟 vgod* 
 
 **vgod** é um projeto educativo desenvolvido como um fan-site dedicado a um artista brasileiro, combinando design imersivo e funcionalidades interativas para criar uma experiência única para os fãs.  
-
-🔗 **Preview:** [Link do Deploy (se disponível)]  
+ 
 🛠 **Tecnologias:** HTML, CSS, JavaScript, Node.js, MySQL  
-
----
 
 ## ✨ Funcionalidades  
 
@@ -36,10 +33,12 @@
    ```bash
    git clone https://github.com/seu-usuario/vgod.git
    cd vgod
+   ```
 
 2. **Instale as dependências**
    ```bash
    npm install
+   ```
 
 3. **Configure o Banco de Dados**
    - Crie um arquivo .env na raiz do projeto com as variáveis:
@@ -49,15 +48,18 @@
      DB_PASSWORD=sua_senha
      DB_NAME=vgod_db
      PORT=3000
+     ```
 
 4. **Inicie o servidor**
    ```bash
    npm start
+   ```
    - Acesse: http://localhost:3000
    
 ---
 
 **🛠 Estrutura do Projeto**
+```plaintext
 vgod/
 ├── public/          # Arquivos estáticos (HTML, CSS, JS)
 │   ├── css/
@@ -71,6 +73,8 @@ vgod/
 ├── .env.example     # Modelo de variáveis de ambiente
 ├── package.json
 └── README.md
+```
+
 ---
 
 **🤝 Contribuição**
